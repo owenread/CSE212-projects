@@ -40,13 +40,13 @@ public static class Arrays
 
         // 3. combining tail + front in the new order
         List<int> rotated = new List<int>(count);
-        // Create a new variable that hold the new list order that we will use to replace the data in the original list
+        // 4. Create a new variable that hold the new list order that we will use to replace the data in the original list
         // and add the tal (last 'amount' items) to the front of the list.
         rotated.AddRange(tail);
-        // Add the front (the rest) to the end of the temporary list. 
+        // 5. Add the front (the rest) to the end of the temporary list. 
         rotated.AddRange(front);
 
-        // Step 4 & 5: clear the original list and repopulate it with the data from out temporary, rotated list. 
+        // 6. clear the original list and repopulate it with the data from out temporary, rotated list. 
         data.Clear();
         data.AddRange(rotated);
     }
