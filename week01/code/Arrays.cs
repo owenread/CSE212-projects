@@ -8,12 +8,18 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // 1. Create an array of size numberOfMultiples
+        double[] result = new double[length];
+        // 2. Loop from 0 to numberOfMultiples
+        for (int i = 0; i < length; i++)
+        {
+            // 3. For each index, calculate start * (index + 1)
+            // 4. Store it in the array
+            result[i] = number * (i + 1);
 
-        return []; // replace this return statement with your own
+        }
+        // 5. Return the array
+        return result; // replace this return statement with your own
     }
 
     /// <summary>
@@ -25,9 +31,24 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // 1. Get a count of how many data items we have to work with in the list
+        int count = data.Count;
+
+        // 2.  get the tail (last 'amount' items) and the front (the rest)
+        List<int> tail = data.GetRange(count - amount, amount);
+        List<int> front = data.GetRange(0, count - amount);
+
+        // 3. combining tail + front in the new order
+        List<int> rotated = new List<int>(count);
+        // Create a new variable that hold the new list order that we will use to replace the data in the original list
+        // and add the tal (last 'amount' items) to the front of the list.
+        rotated.AddRange(tail);
+        // Add the front (the rest) to the end of the temporary list. 
+        rotated.AddRange(front);
+
+        // Step 4 & 5: clear the original list and repopulate it with the data from out temporary, rotated list. 
+        data.Clear();
+        data.AddRange(rotated);
     }
 }
+
